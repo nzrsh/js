@@ -1,0 +1,239 @@
+html {
+    font-size: 24px;
+    background-color: #0d1117;
+    color: #f0f6fc;
+    font-family: Arial, sans-serif;
+}
+
+main {
+    background-color: #151b23;
+    border: 1px solid #3d444d;
+    max-width: 500px;
+    margin: 10vh auto;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.settings {
+    min-width: 90%;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 10px;
+    border: 2px solid #3d444d;
+    border-radius: 10px;
+    padding: 0.5rem;
+    font-size: 16px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.display {
+    all: unset;
+    border: 1px solid #3d444d;
+    border-radius: 10px;
+    text-align: right;
+    flex: 1 0 90%;
+    margin: 10px;
+    font-size: 30px;
+    padding: 5px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.display:hover {
+    background-color: #1e232b;
+    border-color: #0066cc;
+}
+
+.row-container {
+    min-width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.calc {
+    flex: 1 0 90%;
+    font-size: 30px;
+    background-color: #89e051;
+    color: #151b23;
+    margin: 10px;
+    padding: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.calc:hover {
+    background-color: #7cd759;
+}
+
+button {
+    all: unset;
+    border: 1px solid #3d444d;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    padding: 0.5rem;
+    margin: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #0066cc;
+    transform: scale(1.1);
+}
+
+button:active {
+    background-color: #004b8d;
+}
+
+.num-container, .op-container {
+    min-width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+    border: 2px solid #3d444d;
+    border-radius: 10px;
+    padding: 0.5rem;
+}
+
+.num-container button, .op-container button {
+    padding: 0.5rem;
+    margin: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.num-container button:hover, .op-container button:hover {
+    background-color: #0066cc;
+    transform: scale(1.1);
+}
+
+.num-container button:active, .op-container button:active {
+    background-color: #004b8d;
+}
+
+.num-container button {
+    flex: 1 0 20%;
+}
+
+.op-container button {
+    flex: 1 0 15%;
+}
+
+.adv-op-container {
+    min-width: 90%;
+    display: none;
+    flex-wrap: wrap;
+    margin: 10px;
+    border: 2px solid #3d444d;
+    border-radius: 10px;
+    padding: 0.5rem;
+}
+
+.adv-op-container button {
+    padding: 0.5rem;
+    margin: 5px;
+    flex: 1 0 15%;
+}
+
+::placeholder {
+    color: #3d444d;
+    font-size: 1em;
+}
+
+select {
+    appearance: none;
+    background-color: #151b23;
+    border: 2px solid #3d444d;
+    border-radius: 10px;
+    color: #f0f6fc;
+    padding: 8px 12px;
+    text-align: right;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.3s, box-shadow 0.3s ease, background-color 0.3s ease;
+    position: relative;
+}
+
+select:hover {
+    border-color: #0066cc;
+    box-shadow: 0 0 5px rgba(0, 102, 204, 0.5);
+    background-color: #1e232b;
+}
+
+select:focus {
+    border-color: #0066cc;
+    box-shadow: 0 0 5px rgba(0, 102, 204, 0.5);
+}
+
+select::after {
+    content: '';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    border-left: 2px solid #f0f6fc;
+    border-bottom: 2px solid #f0f6fc;
+    transform: rotate(45deg);
+    pointer-events: none;
+}
+
+/* Стили для чекбокса */
+.custom-checkbox {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+/* Скрываем стандартный чекбокс */
+.custom-checkbox input {
+    opacity: 0;
+    position: absolute;
+    pointer-events: none; /* Отключаем возможность кликать по стандартному чекбоксу */
+}
+
+/* Стили для кастомной коробки чекбокса */
+.custom-checkbox .checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #3d444d;
+    border-radius: 4px;
+    background-color: #151b23;
+    margin-right: 10px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    display: inline-block;
+    position: relative;
+}
+
+/* Стили для состояния "выбран" */
+.custom-checkbox input:checked + .checkbox {
+    background-color: #0066cc;
+    border-color: #0066cc;
+}
+
+/* Галочка для чекбокса */
+.custom-checkbox input:checked + .checkbox::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid #f0f6fc;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg); /* Рисуем галочку */
+    transform-origin: center;
+}
+
+/* Эффект наведения */
+.custom-checkbox:hover .checkbox {
+    border-color: #0066cc;
+    transform: scale(1.1);
+}
+
+.custom-checkbox input:focus + .checkbox {
+    box-shadow: 0 0 5px rgba(0, 102, 204, 0.5);
+}
